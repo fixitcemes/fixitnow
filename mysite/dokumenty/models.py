@@ -17,9 +17,10 @@ class DeviceType(models.Model):
     who_is_made = models.CharField(max_length=100)
     additional_notes = models.TextField(max_length=1000, help_text="Type all important information about.")
 
+    @property
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.short_name_device}'
+        return self.short_name_device
 
 class Device(models.Model):
     """Model representing a device."""
@@ -51,6 +52,7 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
+
 class CrashReport(models.Model):
     number_id = models.AutoField(primary_key=True)
     date_notice = models.DateField(auto_now = False, auto_now_add = False)
