@@ -14,7 +14,7 @@ class Occupation(models.Model):
 class DeviceType(models.Model):
     """Model representing a device type."""
     type_device_name = models.CharField(max_length=100)
-    short_name_device= models.CharField(max_length=7, default='Maszyna')
+    short_name_device = models.CharField(max_length=7, default='Maszyna')
     who_is_made = models.CharField(max_length=100)
     additional_notes = models.TextField(max_length=1000, help_text="Type all important information about.")
 
@@ -27,7 +27,8 @@ class Device(models.Model):
     """Model representing a device."""
     type_name = models.ManyToManyField(DeviceType, help_text='Select a device type')
     device_id = models.DecimalField(max_digits=4, decimal_places=0)
-    short_name_device_own = ForeignKey(DeviceType, related_name='device_type_device', on_delete=models.SET_NULL, null=True)
+    short_name_device_own = ForeignKey(DeviceType, related_name='device_type_device', on_delete=models.SET_NULL,
+                                       null=True)
     prod_year = models.DateTimeField(auto_now=False, auto_now_add=False)
     worked_science = models.DateField(auto_now=False)
 
@@ -57,7 +58,7 @@ class Author(models.Model):
 
 class CrashReport(models.Model):
     number_id = models.AutoField(primary_key=True)
-    date_notice = models.DateField(auto_now = False, auto_now_add = False)
+    date_notice = models.DateField(auto_now=False, auto_now_add=False)
 
     SHIFT_NUMBER = (
         ('I', 'Zmiana I (6:00 - 14:00)'),
@@ -78,9 +79,6 @@ class CrashReport(models.Model):
     description = models.TextField(max_length=1000, help_text='Please type what happened')
     which_stuff = models.ManyToManyField(Device, help_text='Select a exactly devices')
 
-
-
-
     PROCESSING_STATUS = (
         ('o', 'Otwarty'),
         ('p', 'Przetwarzanie'),
@@ -97,8 +95,4 @@ class CrashReport(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.number_id}/{self.which_stuff.all(str)}/{self.date_notice}'
-
-
-
-
+        return f'{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
