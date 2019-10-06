@@ -1,0 +1,17 @@
+{% extends 'baza.html' %}
+
+
+{% block content %}
+
+<h1>Numer raportu: {{ object.number_report }}</h1>
+
+<h3> {{ object.date_report }} </h3>
+<h3> {{ object.workers }} </h3>
+<h3> {{ object.description }} </h3>
+<h3> {{ object.comments }} </h3>
+<h3> {{ object.used_parts }} </h3>
+<h3> {{ object.who_create }} </h3>
+<h3> {{ object.do_you_accepted }} </h3>
+<h3> {{ object.who_accepted }} </h3>
+
+{% endblock %}
