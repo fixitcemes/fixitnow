@@ -13,16 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
-from podstrony.views import (start, raporty, nowyraport, protokoly, faktury)
-from dokumenty.views import CrashReport
-from django.urls import path, include
 
 urlpatterns = [
-    path('', include('podstrony.urls')),
-    path('opis', CrashReport),
     path('admin/', admin.site.urls),
-
-]
+    path('dokumenty/', include('dokumenty.urls')),
+    path('', RedirectView.as_view(url='/dokumenty/')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -12,18 +12,27 @@
 			<title>Maria Awaria Service - Ty psujesz my naprawiamy</title>
 		<meta name ="description" content="Maria Awaria Service - Ty psujesz My naprawiamy">
 		<meta name="keywords" content="serwis, maszyn, pojazdów, urządzeń, Maria, Awaria, Service">
-		<link rel="stylesheet" type="text/css" href="static\podstrony\arkusz.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
 		
 	</head>
 	<body>
-		{% load static %}
+{% load static %}
+		<div class="head_top">
+				<span class="head_logo">
 
-		<link rel="stylesheet" type="text/css" href="{% static 'static\podstrony\arkusz.css' %}">
-		{% include 'podstrony/top.html' %}
-		{% include 'podstrony/menu.html' %}
-		 <div id="content" class="main_content">
-        {% block content %}{% endblock %}
-   		 </div>
+					<img src="{% static "dokumenty/mainlogo.jpg" %}" alt="Logo">
+
+
+				</span>
+				<span class="date_and_time">
+					Godzina:
+				</br>
+					Data:
+				</span>	
+				</div>
 		
+				
+			
 	</body>
-</html>
+	</html>
+			

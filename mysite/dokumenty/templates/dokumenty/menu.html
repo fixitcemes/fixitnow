@@ -12,21 +12,21 @@
 			<title>Maria Awaria Service - Ty psujesz my naprawiamy</title>
 		<meta name ="description" content="Maria Awaria Service - Ty psujesz My naprawiamy">
 		<meta name="keywords" content="serwis, maszyn, pojazdów, urządzeń, Maria, Awaria, Service">
-		<link rel="stylesheet" type="text/css" href="arkusz.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
 		
 	</head>
 	<body>			
 			<div class="blocked_float">
 				
 				<div class="menu_right">
-					<a href="http://127.0.0.1:8000/">Start</a>
+					<li><a href="{% url 'index' %}">Start</a></li>
 				</br>
-					<a href="raporty">Raporty</a>
-					<ul><a href="nowyraport">Stwórz raport</a></ul>
+					<li><a href="{% url 'crashreports' %}">Zgłoszenia</a><li>
+					<a href="nowyraport">Stwórz raport</a>
 				</br>
-					<a href="protokoly">Protokoły</a>
+					<li><a href="protokoly">Protokoły</a></li>
 				</br>
-					<a href="faktury">Faktury</a>
+					<li><a href="faktury">Faktury</a></li>
 				</div>
 				
 

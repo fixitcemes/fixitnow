@@ -1,0 +1,22 @@
+{% extends 'baza.html' %}
+{% block content %}
+
+<h>Witam w Systemie Ewidencji Maria Awaria Service - Raporty</h>
+
+
+  <h1>Crash Reports List</h1>
+  {% if crash_reports_list %}
+  <ul>
+    {% for crashreports in crash_reports_list %}
+      <li>
+       {{ crashreports.number_id }}({{crashreports.date_notice}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no crash reports in the system.</p>
+  {% endif %}
+
+{% endblock %}
+
+

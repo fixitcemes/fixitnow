@@ -34,7 +34,7 @@ class Device(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.short_name_device_own}, {self.device_id}'
+        return f'{self.short_name_device_own} - {self.device_id}'
 
 
 class Author(models.Model):
@@ -68,7 +68,7 @@ class CrashReport(models.Model):
     )
 
     which_shift = models.CharField(
-        max_length=1,
+        max_length=3,
         choices=SHIFT_NUMBER,
         blank=True,
         default='I',

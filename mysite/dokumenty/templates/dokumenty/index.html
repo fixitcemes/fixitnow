@@ -1,0 +1,18 @@
+{% extends 'baza.html' %}
+{% block content %}
+
+<h1Welcome in Maria Awaria Service </h1>
+
+  <p>The system has the following record counts:</p>
+  <ul>
+    <li><strong>All:</strong> {{ num_crashreports }}</li>
+    <li><strong>Open:</strong> {{ num_crashreports_open }}</li>
+    <li><strong>Processing:</strong> {{ num_crashreports_processing }}</li>
+  </ul>
+
+{% endblock %}
+
+
+}
+
+
