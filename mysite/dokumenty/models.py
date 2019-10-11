@@ -33,7 +33,6 @@ class Device(models.Model):
     prod_year = models.DateTimeField(auto_now=False, auto_now_add=False)
     worked_science = models.DateField(auto_now=False)
 
-
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.short_name_device_own} - {self.device_id}'
