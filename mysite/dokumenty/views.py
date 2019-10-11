@@ -23,14 +23,13 @@ def index(request):
     return render(request, 'dokumenty/index.html', context=context)
 
 
-# def index(request, *args, **kwargs):
-# return render(request, "dokumenty/home.html", {})
-
 class CrashReportsListView(generic.ListView):
     model = CrashReport
     context_object_name = 'crash_reports_list'   # your own name for the list as a template variable
     queryset = CrashReport.objects.filter()[:5] # Get 5 crash reports
-    template_name = 'dokumenty/raporty.html'  # Specify your own template name/location
+
+class CrashReportsDetailView(generic.DetailView):
+    model = CrashReport
 
 
 def nowyraport(request, *args, **kwargs):

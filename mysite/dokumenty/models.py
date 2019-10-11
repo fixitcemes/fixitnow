@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.fields.related import ForeignKey
+from django.urls import reverse
 
 
 class Occupation(models.Model):
@@ -31,6 +32,7 @@ class Device(models.Model):
                                        null=True)
     prod_year = models.DateTimeField(auto_now=False, auto_now_add=False)
     worked_science = models.DateField(auto_now=False)
+
 
     def __str__(self):
         """String for representing the Model object."""
@@ -93,6 +95,14 @@ class CrashReport(models.Model):
         help_text='Status dokumentu.'
     )
 
+    def display_stuff(self):
+        """Creates a string for the Genre. This is required to display genre in Admin."""
+        return ', '.join([device.name for device in self.device.all()[5:9]])
+
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
+        return f'ZGL /{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
+
+    def get_absolute_url(self):
+        """Returns the url to access a detail record for this book."""
+        return reverse('crashreport-detail', args=[str(self.number_id)])
