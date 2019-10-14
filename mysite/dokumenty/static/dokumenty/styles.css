@@ -51,7 +51,7 @@
         top: 101px;
         left: 151px;
         font-size: 1em;
-        position: fixed;
+        position: absolute;
 
       }
       div.blocked_float
@@ -78,4 +78,13 @@
         border-bottom-width: 3px;
          
 
+      }
+
+      span.document_id
+      {
+
+        position: absolute;
+        right: 300px;
+        height: 300px;
+        border-bottom-width: 3px;
       }

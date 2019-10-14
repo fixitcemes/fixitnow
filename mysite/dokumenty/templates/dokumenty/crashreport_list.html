@@ -1,23 +1,24 @@
-{% extends 'baza.html' %}
-{% block content %}
+    {% extends 'baza.html' %}
+    {% block content %}
 
-<h>Witam w Systemie Ewidencji Maria Awaria Service - Raporty</h>
-
-
-  <h1>Zgłoszenia</h1>
-  {% if crash_reports_list %}
-  <ul>
-    {% for crashreports in crash_reports_list %}
-    <li>
-        <a href="{{ crashreport.get_absolute_url }}">ZGL /{{ crashreports.number_id }} / {{ crashreports.which_stuff.all|join:", " }} / {{crashreports.date_notice}}</a>,
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no crash reports in the system.</p>
-  {% endif %}
+    <h>Witam w Systemie Ewidencji Maria Awaria Service - Raporty</h>
 
 
+      <h1>Zgłoszenia</h1>
+      {% if crash_reports_list %}
+      <ul>
+        {% for crashreports in crash_reports_list %}
+        <li>
+            <a href="{{ crashreports.get_absolute_url }}">ZGL /{{ crashreports.number_id }} / {{ crashreports.which_stuff.all|join:", " }} / {{crashreports.date_notice}}</a>,
 
-{% endblock %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>There are no crash reports in the system.</p>
+      {% endif %}
+
+
+
+    {% endblock %}
 

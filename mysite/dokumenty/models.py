@@ -95,13 +95,10 @@ class CrashReport(models.Model):
     )
 
     def display_stuff(self):
-        """Creates a string for the Genre. This is required to display genre in Admin."""
         return ', '.join([device.name for device in self.device.all()[5:9]])
 
     def __str__(self):
-        """String for representing the Model object."""
         return f'ZGL /{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
 
     def get_absolute_url(self):
-        """Returns the url to access a detail record for this book."""
         return reverse('crashreport-detail', args=[str(self.number_id)])
