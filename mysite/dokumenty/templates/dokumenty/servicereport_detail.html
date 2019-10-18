@@ -1,0 +1,46 @@
+{% extends "baza.html" %}
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+	<head>
+		<meta http-equiv="content-type" content="text/html"; charset="utf-8"/>
+		<meta http-equiv="content-language" content="pl" />
+
+		<meta name="author" content="Robert Juchniewicz"/>
+		<meta name="robots" content="index, follow"/>
+			<title>Maria Awaria Service - Ty psujesz my naprawiamy</title>
+		<meta name ="description" content="Maria Awaria Service - Ty psujesz My naprawiamy">
+		<meta name="keywords" content="serwis, maszyn, pojazdów, urządzeń, Maria, Awaria, Service">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+	</head>
+	<body>
+{% load static %}
+
+
+
+{% block content %}
+
+<p align="center">RAPORT PRACY SERWISU</p>
+
+<p align="center">Data: {{ servicereport.date_notice }} &nbsp;&nbsp;&nbsp; Zmiana: {{ servicereport.which_shift.all|join:", " }}</p>
+
+
+<span class="document_id">
+
+	ZGL / {{ servicereport.number_id }} / {{ servicereport.which_stuff.all|join:", "  }} / {{ servicereport.date_notice }}
+</span>
+
+
+
+  <p><strong>Author:</strong>{{ servicereport.who_notice.all|join:", "  }} </p> <!-- author detail link not yet defined -->
+  <p><strong>Date:</strong> {{ servicereport.date_notice }}</p>
+  <p><strong>Description:</strong> {{ servicereport.description }}</p>
+
+{% endblock %}
+
+    </body>
+ </html>

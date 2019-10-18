@@ -13,23 +13,19 @@
 		<meta name ="description" content="Maria Awaria Service - Ty psujesz My naprawiamy">
 		<meta name="keywords" content="serwis, maszyn, pojazdów, urządzeń, Maria, Awaria, Service">
 		<link rel="stylesheet" type="text/css" href="styles.css">
+
+
 		
 	</head>
-	<body>			
+	<body>
 			<div class="blocked_float">
-				
+
 				<div class="menu_right">
 					<li><a href="{% url 'index' %}">Start</a></li>
-				</br>
 					<li><a href="{% url 'crashreports' %}">Zgłoszenia</a><li>
-					<a href="nowyraport">Stwórz raport</a>
-				</br>
-					<li><a href="protokoly">Protokoły</a></li>
-				</br>
-					<li><a href="faktury">Faktury</a></li>
+					<li><a href="{% url 'servicereports' %}">Raporty</a><li>
+					<li><a href="faktury">Protokoły</a></li>
 				</div>
-				
-
 			</div>
 	</body>
 	</html>

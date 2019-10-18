@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CrashReport, Author, Occupation, Device, DeviceType
+from .models import CrashReport, Author, Occupation, Device, DeviceType, ServiceReport, UsedPart
 
 
 #admin.site.register(Author)
@@ -12,7 +12,13 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Author, AuthorAdmin)
 
 
+
 @admin.register(CrashReport)
+class CrashReportsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(ServiceReport)
 class CrashReportsAdmin(admin.ModelAdmin):
     pass
 
@@ -20,4 +26,4 @@ class CrashReportsAdmin(admin.ModelAdmin):
 admin.site.register(Occupation)
 admin.site.register(Device)
 admin.site.register(DeviceType)
-
+admin.site.register(UsedPart)

@@ -56,6 +56,14 @@ class Author(models.Model):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
 
+class UsedPart(models.Model):
+    name_part = models.CharField(max_length=100)
+    number_part = models.CharField(max_length=100)
+    prize_part = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f'{self.name_part} {self.number_part} ({self.prize_part} PLN)'
 
 class CrashReport(models.Model):
     number_id = models.AutoField(primary_key=True)
@@ -94,11 +102,62 @@ class CrashReport(models.Model):
         help_text='Status dokumentu.'
     )
 
-    def display_stuff(self):
-        return ', '.join([device.name for device in self.device.all()[5:9]])
+    #def display_stuff(self):
+    #    return ', '.join([device.name for device in self.device.all()[5:9]])
 
     def __str__(self):
         return f'ZGL /{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
 
     def get_absolute_url(self):
         return reverse('crashreport-detail', args=[str(self.number_id)])
+
+
+class ServiceReport(models.Model):
+    number_id = models.AutoField(primary_key=True)
+    date_notice = models.DateField(auto_now=False, auto_now_add=False)
+
+    SHIFT_NUMBER = (
+        ('I', 'Zmiana I (6:00 - 14:00)'),
+        ('II', 'Zmiana II (14:00 - 22:00)'),
+        ('III', 'Zmiana III (22:00 - 06:00)'),
+
+    )
+
+    which_shift = models.CharField(
+        max_length=3,
+        choices=SHIFT_NUMBER,
+        blank=True,
+        default='I',
+        help_text='Zmiana.'
+    )
+
+    who_fixed = models.ManyToManyField(Author, help_text='Select a occupation for this employee')
+    description = models.TextField(max_length=1000, help_text='Please type what happened')
+    which_stuff = models.ManyToManyField(Device, help_text='Select exactly devices')
+    used_parts = models.ManyToManyField(UsedPart, help_text="Select used parts")
+
+
+    PROCESSING_STATUS = (
+        ('o', 'Otwarty'),
+        ('p', 'Przetwarzanie'),
+        ('z', 'Zakonczony'),
+    )
+
+    status_notice = models.CharField(
+        max_length=1,
+        choices=PROCESSING_STATUS,
+        blank=True,
+        default='o',
+        help_text='Status dokumentu.'
+    )
+
+    #def display_stuff(self):
+    #    return ', '.join([device.name for device in self.device.all()[5:9]])
+
+    def __str__(self):
+        return f'ZGL /{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
+
+    def get_absolute_url(self):
+        return reverse('servicereport-detail', args=[str(self.number_id)])
+
+

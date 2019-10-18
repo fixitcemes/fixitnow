@@ -1,0 +1,24 @@
+    {% extends 'baza.html' %}
+    {% block content %}
+
+    <h>Witam w Systemie Ewidencji Maria Awaria Service - Raporty</h>
+
+
+      <h1>Raporty serwisowe</h1>
+      {% if service_reports_list %}
+      <ul>
+        {% for servicereports in service_reports_list %}
+        <li>
+            <a href="{{ servicereports.get_absolute_url }}">ZGL /{{ servicereports.number_id }} / {{ servicereports.which_stuff.all|join:", " }} / {{servicereports.date_notice}}</a>,
+
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>There are no service reports in the system.</p>
+      {% endif %}
+
+
+
+    {% endblock %}
+
