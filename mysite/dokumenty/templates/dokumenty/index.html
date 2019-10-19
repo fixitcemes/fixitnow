@@ -1,7 +1,33 @@
 {% extends 'baza.html' %}
-{% block content %}
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<h1Welcome in Maria Awaria Service </h1>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+	<head>
+		<meta http-equiv="content-type" content="text/html"; charset="utf-8"/>
+		<meta http-equiv="content-language" content="pl" />
+
+		<meta name="author" content="Robert Juchniewicz"/>
+		<meta name="robots" content="index, follow"/>
+			<title>Maria Awaria Service - Ty psujesz my naprawiamy</title>
+		<meta name ="description" content="Maria Awaria Service - Ty psujesz My naprawiamy">
+		<meta name="keywords" content="serwis, maszyn, pojazdów, urządzeń, Maria, Awaria, Service">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+	</head>
+
+ {% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'dokumenty\styles.css' %}">
+
+<div class="index_view">
+
+  <span class="documents_counter">
+
+<h1>Welcome in Maria Awaria Service </h1>
 
   <p>The system has the following record counts:</p>
   <ul>
@@ -10,9 +36,10 @@
     <li><strong>Processing:</strong> {{ num_crashreports_processing }}</li>
   </ul>
 
+  </span>
+</div>
+
 {% endblock %}
 
 
-}
-
-
+				</div>

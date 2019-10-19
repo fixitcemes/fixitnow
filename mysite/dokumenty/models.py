@@ -155,7 +155,7 @@ class ServiceReport(models.Model):
     #    return ', '.join([device.name for device in self.device.all()[5:9]])
 
     def __str__(self):
-        return f'ZGL /{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
+        return f'RZM/{self.number_id} / {self.which_stuff.all()} / {self.date_notice}'
 
     def get_absolute_url(self):
         return reverse('servicereport-detail', args=[str(self.number_id)])
