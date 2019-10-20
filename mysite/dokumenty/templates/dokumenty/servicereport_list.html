@@ -9,7 +9,7 @@
       <ul>
         {% for servicereports in service_reports_list %}
         <li>
-            <a href="{{ servicereports.get_absolute_url }}">ZGL /{{ servicereports.number_id }} / {{ servicereports.which_stuff.all|join:", " }} / {{servicereports.date_notice}}</a>,
+            <a href="{{ servicereports.get_absolute_url }}">RZM /{{ servicereports.number_id }} / {{ servicereports.which_stuff.all|join:", " }} / {{servicereports.date_notice}}</a>,
 
         </li>
         {% endfor %}

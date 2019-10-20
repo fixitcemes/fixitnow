@@ -1,35 +1,33 @@
 {% extends "baza.html" %}
+{% block content %}
 {% load static %}
 
-
-
-{% block content %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'dokumenty\styles.css' %}">
+<div class="service_dokument">
 <p align="center">RAPORT PRACY SERWISU</p>
+<p align="center"><strong>RZM / {{ servicereport.number_id }} / {{ servicereport.which_stuff.all|join:", "  }} / {{ servicereport.date_notice }} </p></strong>
 
 <p align="center">Data: {{ servicereport.date_notice }}  Zmiana: {{ servicereport.which_shift.all|join:", " }}</p>
 <div class="report_details">
 
-<table border="2px" cellpadding="10" cellspacing="0" align="center">
+<table class="service_report">
 	<tr>
-	<td> 	RZM / {{ servicereport.number_id }} / {{ servicereport.which_stuff.all|join:", "  }} / {{ servicereport.date_notice }}</td>
-
-		<td> status</td>
+	<td id="part1"> RZM / {{ servicereport.number_id }} / {{ servicereport.which_stuff.all|join:", "  }} / {{ servicereport.date_notice }}</td> <td id="part1"> Utworzył: {{ servicereport.who_fixed.all|join:", "  }}</td>
 	</tr>
 	<tr>
-		<td> nr zgłoszenia</td>
-		<td> kto</td>
-
-
+		<td id="part1"> nr zgłoszenia</td> <td id="part1">STATUS: {{ servicereport.status_notice_display }}</td>
 	</tr>
 
 </table>
+<table>
+	<tr>
+		<td id="opis"> Opis: {{ servicereport.description }}</td>
+	</tr>
+</table>
 
 </div>
-  <p><strong>Author:</strong>{{ servicereport.who_notice.all|join:", "  }} </p> <!-- author detail link not yet defined -->
-  <p><strong>Date:</strong> {{ servicereport.date_notice }}</p>
-  <p><strong>Description:</strong> {{ servicereport.description }}</p>
 
+</div>
 {% endblock %}
 
     </body>

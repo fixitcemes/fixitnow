@@ -130,7 +130,7 @@ class ServiceReport(models.Model):
         default='I',
         help_text='Zmiana.'
     )
-
+    who_made = models.ManyToManyField(Author, help_text='Select a occupation for this employee')
     who_fixed = models.ManyToManyField(Author, help_text='Select a occupation for this employee')
     description = models.TextField(max_length=1000, help_text='Please type what happened')
     which_stuff = models.ManyToManyField(Device, help_text='Select exactly devices')
@@ -150,6 +150,10 @@ class ServiceReport(models.Model):
         default='o',
         help_text='Status dokumentu.'
     )
+    def status_notice_display(self):
+        return self.status_notice
+
+
 
     #def display_stuff(self):
     #    return ', '.join([device.name for device in self.device.all()[5:9]])
