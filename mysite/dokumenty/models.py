@@ -70,6 +70,7 @@ class CrashReport(models.Model):
     date_notice = models.DateField(auto_now=False, auto_now_add=False)
 
     SHIFT_NUMBER = (
+
         ('I', 'Zmiana I (6:00 - 14:00)'),
         ('II', 'Zmiana II (14:00 - 22:00)'),
         ('III', 'Zmiana III (22:00 - 06:00)'),
@@ -130,8 +131,8 @@ class ServiceReport(models.Model):
         default='I',
         help_text='Zmiana.'
     )
-    who_made = models.ManyToManyField(Author, help_text='Select a occupation for this employee')
     who_fixed = models.ManyToManyField(Author, help_text='Select a occupation for this employee')
+    who_made = models.ManyToManyField(Author, help_text='Select employee', related_name="author_servicereport_set")
     description = models.TextField(max_length=1000, help_text='Please type what happened')
     which_stuff = models.ManyToManyField(Device, help_text='Select exactly devices')
     used_parts = models.ManyToManyField(UsedPart, help_text="Select used parts")

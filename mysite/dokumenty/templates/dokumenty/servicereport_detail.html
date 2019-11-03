@@ -24,7 +24,22 @@
 		<td id="opis"> Opis: {{ servicereport.description }}</td>
 	</tr>
 </table>
+<table>
+	<tr>
+		<td id="raport_pracownicy">
+      <ul>
+        {% for author in author_list %}
+        <li>
+			{{ author.last_name }} {{ author.first.name }}
 
+        </li>
+        {% endfor %}
+      </ul>
+
+
+		</td>
+	</tr>
+</table>
 </div>
 
 </div>
