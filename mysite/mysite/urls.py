@@ -25,5 +25,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dokumenty/', include('dokumenty.urls')),
-    path('', RedirectView.as_view(url='/dokumenty/')),
+    path('', RedirectView.as_view(url='accounts/login')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+
+]
+1

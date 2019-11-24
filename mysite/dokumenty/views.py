@@ -32,7 +32,6 @@ class CrashReportsListView(generic.ListView):
 class CrashReportsDetailView(generic.DetailView):
     model = CrashReport
 
-
 class ServiceReportsListView(generic.ListView):
     model = ServiceReport
     context_object_name = 'service_reports_list'  # your own name for the list as a template variable
@@ -42,6 +41,8 @@ class ServiceReportsListView(generic.ListView):
 class ServiceReportsDetailView(generic.DetailView):
     model = ServiceReport
 
+class NewServiceReport:
+    model = ServiceReport
 
 def nowyraport(request, *args, **kwargs):
     return render(request, "dokumenty/nowyraport.html", {})

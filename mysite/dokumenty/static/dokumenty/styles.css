@@ -68,6 +68,17 @@
         right: 100px;
         height: 100px;
         border-bottom-width: 3px;
+
+      span.login_logout
+      {
+        position: absolute;
+        right: 100px;
+        height: 100px;
+        border-bottom-width: 3px;
+
+
+      }
+
       }
       span.head_logo
       {
@@ -76,6 +87,7 @@
         left: 50%;
         height: 100px;
         border-bottom-width: 3px;
+
 
 
       }
@@ -151,4 +163,12 @@
       {
       border: 1px;
       border-style: solid;
+      }
+
+      .frame{
+      position: relative;
+      top: 60px;
+      left: 20px;
+      border: 3px solid black;
+      border-radius: 15px;
       }

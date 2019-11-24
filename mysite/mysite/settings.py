@@ -127,3 +127,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     "/home/robert/fixitnow/mysite/dokumenty/static",
 ]
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/dokumenty/'

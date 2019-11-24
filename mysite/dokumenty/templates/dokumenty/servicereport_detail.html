@@ -5,9 +5,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'dokumenty\styles.css' %}">
 <div class="service_dokument">
 <p align="center">RAPORT PRACY SERWISU</p>
-<p align="center"><strong>RZM / {{ servicereport.number_id }} / {{ servicereport.which_stuff.all|join:", "  }} / {{ servicereport.date_notice }} </p></strong>
+<p align="center"><strong>RZM / {{ servicereport.number_id }} / {{ servicereport.which_stuff.all|join:", "  }} / {{ servicereport.date_notice }} </strong></p>
 
-<p align="center">Data: {{ servicereport.date_notice }}  Zmiana: {{ servicereport.which_shift.all|join:", " }}</p>
+<p align="center">Data: {{ servicereport.date_notice }}  Zmiana: {{ servicereport.which_shift_display }}</p>
 <div class="report_details">
 
 <table class="service_report">
@@ -28,13 +28,7 @@
 	<tr>
 		<td id="raport_pracownicy">
       <ul>
-        {% for author in author_list %}
-        <li>
-			{{ author.last_name }} {{ author.first.name }}
 
-        </li>
-        {% endfor %}
-      </ul>
 
 
 		</td>

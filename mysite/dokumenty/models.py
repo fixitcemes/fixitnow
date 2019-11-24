@@ -151,8 +151,12 @@ class ServiceReport(models.Model):
         default='o',
         help_text='Status dokumentu.'
     )
+
     def status_notice_display(self):
         return self.status_notice
+
+    def which_shift_display(self):
+        return self.which_shift
 
 
 
